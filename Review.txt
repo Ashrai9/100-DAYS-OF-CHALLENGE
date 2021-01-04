@@ -1,0 +1,4 @@
+Day 3:
+Got stuck with the Matrix to heaven question. Was able to get the solution but it is like customized to only one problem
+Day 4:
+*using direct reverse() option lists can be reveresed not the string directly
