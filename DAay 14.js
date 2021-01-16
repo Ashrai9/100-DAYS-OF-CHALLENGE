@@ -62,32 +62,31 @@ convert([[0, 2]])//0
 
 // pos->[[0,0],[0,1],[1,0],[0,2],[1,1],[2,1],[2,2]]
 2 >// most common word 
-    // find the most common word in the paragrah apart from thr banned words
-    //30 min
+// find the most common word in the paragrah apart from thr banned words
+//30 min
 
-    function word(para, ban) {
-        let obj = []
-        let paras = para.toLowerCase().split(/\s+/g)
-        console.log(paras)
-        for (let i of paras) {
-            if (obj[i]) {
-                obj[i] += 1
-            } else {
-                obj[i] = 1
-            }
-        }
-        let x = Object
-            .entries(obj)
-            .sort((a, b) => b[1] - a[1])
-        console.log(x, "ooo")
-        let y = 0
-        for (let i = 0; i < ban.length; i++) {
+function word(para,ban){
+  let obj=[]
+ let paras=para.toLowerCase().replace(/[!?',;.]/gi,"").split(/\s+/g)
+ //console.log(paras)
+for(let i of paras){
+  if(obj[i]){
+    obj[i]+=1
+  }else{
+    obj[i]=1
+  }
+ }
+ let x=Object
+          .entries(obj)
+          .sort((a,b)=>b[1]-a[1])
+ //console.log(x,"ooo")
+ let y=0
+let k=0
+for(let i=0;i<x.length;i++){
 
-            if ((x[y][0]) == ban[i]) {
-                y++
-            }
-        }
-        console.log(x[y][0], "ans")
-        console.log(x)
-    }
-word("Bob hit a ball, the hit BALL flew far after it was hit.", ['hit', "bob"])    
+  if(!ban.includes(x[i][0])){
+    return x[i][0]
+  }
+}
+}
+word("Bob hit a ball, the hit BALL flew far after it was hit.",["hit","a"])
